@@ -33,6 +33,18 @@ class Connection:
         query = "SELECT * FROM categories"
         return self.execute_query(query, None, fetching=True)
 
+    def get_transactions(self, user_id=1):
+        query = "SELECT * FROM transactions WHERE user_id = " + str(user_id)
+        return self.execute_query(query, (user_id,), fetching=True)
+
+    def get_transactions_by_category(self, category_id, user_id=1):
+        query = "SELECT * FROM transactions WHERE user_id =" + str(user_id) + " AND category_id = " + str(category_id)
+        return self.execute_query(query, (user_id, category_id), True)
+
+    def get_transactions_between_dates(self, start_date, end_date, user_id=1):
+        query = "SELECT * FROM transactions WHERE user_id = " + str(user_id) + " AND date BETWEEN '" + start_date + "' AND '" + end_date + "'"
+        return self.execute_query(query, (user_id, start_date, end_date), True)
+
     def close_connection(self):
         if self.connection:
             self.connection.close()
