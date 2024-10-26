@@ -29,6 +29,10 @@ class Connection:
         except OperationalError as error:
             print("The error", error, "occurred")
 
+    def get_categories(self):
+        query = "SELECT * FROM categories"
+        return self.execute_query(query, None, fetching=True)
+
     def close_connection(self):
         if self.connection:
             self.connection.close()
