@@ -1465,6 +1465,7 @@
 .env/Scripts/pip3.exe
 .env/Scripts/python.exe
 .env/Scripts/pythonw.exe
+<<<<<<< HEAD
 .env/Lib/site-packages/pythoncom.py
 .env/Lib/site-packages/pywin32.pth
 .env/Lib/site-packages/pywin32.version.txt
@@ -7801,3 +7802,6 @@ Test Files/main/_internal/win32/win32file.pyd
 Test Files/main/_internal/win32/win32gui.pyd
 Test Files/main/_internal/win32/win32trace.pyd
 Test Files/main/_internal/win32com/shell/shell.pyd
+=======
+/kivy-tutorial/
+>>>>>>> e132cadf293d397332693e78d12ab220fcfee1cc
