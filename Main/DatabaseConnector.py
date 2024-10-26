@@ -45,6 +45,17 @@ class Connection:
         query = "SELECT * FROM transactions WHERE user_id = " + str(user_id) + " AND date BETWEEN '" + start_date + "' AND '" + end_date + "'"
         return self.execute_query(query, (user_id, start_date, end_date), True)
 
+    def get_balance(self, user_id=1):
+        query = "SELECT balance FROM users WHERE id = " + str(user_id)
+        return self.execute_query(query, (user_id,), True)[0][0]
+
     def close_connection(self):
         if self.connection:
             self.connection.close()
+
+
+
+if __name__ == '__main__':
+    connection = Connection("165.232.37.228", "whacknoclue", "whacknoclueuser", "P@ssword123")
+    print(connection.get_balance(1))
+    connection.close_connection()
