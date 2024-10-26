@@ -52,10 +52,3 @@ class Connection:
     def close_connection(self):
         if self.connection:
             self.connection.close()
-
-
-
-if __name__ == '__main__':
-    connection = Connection("165.232.37.228", "whacknoclue", "whacknoclueuser", "P@ssword123")
-    print(connection.get_balance(1))
-    connection.close_connection()
