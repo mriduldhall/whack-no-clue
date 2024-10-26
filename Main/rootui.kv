@@ -1,0 +1,31 @@
+#:kivy 2.3.0
+
+<RootUI>:
+    size: root.width, root.height
+    BoxLayout:
+        size: root.width, root.height
+        orientation:"horizontal"
+        Label:
+            text: "Big if true!"
+            text_size: (100,100)
+        Label:
+            text: "Big if true!"
+            text_size: (100,100)
+        Label:
+            text: "Big if true!"
+            text_size: (100,100)
+        HorizBox:
+
+<HorizBox>:
+    BoxLayout:
+        orientation:"vertical"
+        size: root.width,root.height
+        padding:100
+        Label:
+            text: "BALANCE: (%s)"%(app.balance)
+        Label:
+            text: "Krill Issue"
+
+<LabelFormat>:
+    Label:
+        text:"BIG IF TRUE"
