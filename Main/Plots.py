@@ -76,6 +76,8 @@ class ExpenditureChart:
         categories = [x[0] for x in data]
         totals = [(-1 * x[1]) for x in data]
         fig = go.Figure(data=[go.Pie(labels=categories, values=totals, hole=.5)])
+        fig.update_traces(textinfo='none')
+        fig.update_layout(showlegend=False, paper_bgcolor='rgba(0.7,0.7,0.7,1)',)
         if not exists("../Plots"):
             mkdir("../Plots")
         fig.write_image("../Plots/expenditure_chart.png")
