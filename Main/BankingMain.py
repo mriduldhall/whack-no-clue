@@ -9,6 +9,7 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.effects.scroll import ScrollEffect
+from kivy.uix.image import Image
 
 class Scroll(ScrollView):
     pass
