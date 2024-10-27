@@ -2,6 +2,8 @@ from datetime import datetime, timedelta
 from DatabaseConnector import Connection
 import plotly.express as px
 import plotly.graph_objects as go
+from os import mkdir
+from os.path import exists
 
 
 class BalanceChart:
@@ -38,7 +40,9 @@ class BalanceChart:
         dates = [x[0] for x in data]
         balances = [x[1] for x in data]
         fig = px.line(x=dates, y=balances, title='Balance chart')
-        fig.show()
+        if not exists("../Plots"):
+            mkdir("../Plots")
+        fig.write_image("../Plots/balance_chart.png")
 
 
 class ExpenditureChart:
@@ -62,4 +66,6 @@ class ExpenditureChart:
         categories = [x[0] for x in data]
         totals = [(-1 * x[1]) for x in data]
         fig = go.Figure(data=[go.Pie(labels=categories, values=totals, hole=.5)])
-        fig.show()
+        if not exists("../Plots"):
+            mkdir("../Plots")
+        fig.write_image("../Plots/expenditure_chart.png")
