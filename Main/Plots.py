@@ -39,7 +39,17 @@ class BalanceChart:
         data = self.collect_data(start_date, end_date)
         dates = [x[0] for x in data]
         balances = [x[1] for x in data]
-        fig = px.line(x=dates, y=balances, title='Balance chart')
+        fig = px.line(x=dates, y=balances, labels={'x': '', 'y': ''})
+        fig.update_traces(line={'width': 7, 'color': 'orange'})
+        fig.update_layout(
+            font=dict(
+                family="Adele",
+                size=26,
+                color="black",
+                ),
+            paper_bgcolor='rgba(0.7,0.7,0.7,1)',
+            plot_bgcolor='rgba(0.2,0.2,0.3,1)',
+)
         if not exists("../Plots"):
             mkdir("../Plots")
         fig.write_image("../Plots/balance_chart.png")
