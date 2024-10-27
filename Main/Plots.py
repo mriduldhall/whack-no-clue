@@ -75,9 +75,17 @@ class ExpenditureChart:
         data = self.collect_data()
         categories = [x[0] for x in data]
         totals = [(-1 * x[1]) for x in data]
+        colours = ['blue', 'red', 'green', 'yellow', 'purple', 'grey']
         fig = go.Figure(data=[go.Pie(labels=categories, values=totals, hole=.5)])
-        fig.update_traces(textinfo='none')
+        fig.update_traces(textinfo='none', marker=dict(colors=colours))
         fig.update_layout(showlegend=False, paper_bgcolor='rgba(0.7,0.7,0.7,1)',)
         if not exists("../Plots"):
             mkdir("../Plots")
         fig.write_image("../Plots/expenditure_chart.png")
+
+
+if __name__ == '__main__':
+    # balance_chart = BalanceChart()
+    # balance_chart.draw_chart('2021-01-01', '2021-12-31')
+    expenditure_chart = ExpenditureChart()
+    expenditure_chart.draw_chart()
