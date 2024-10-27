@@ -1,0 +1,40 @@
+#:kivy 2.3.0
+
+<RootUI>:
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "top"
+        padding: [0,20]
+        BalanceFormat:
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "bottom"
+        padding: [0,20]
+        BalanceFormat:
+    BoxLayout:
+        orientation:"vertical"
+        id: categories
+
+<HorizBox>:
+    BoxLayout:
+        orientation:"horizontal"
+        size: root.width,root.height
+        padding:100
+
+<LabelFormat>:
+    text:"BIG IF TRUE"
+
+<ObtainCategories>:
+    text: "awesome sauce"
+
+<BalanceFormat>:
+    text: "Current Balance: £%s"%app.balance
+    background_color: 0.75,0,0.75,1
+    size_hint: (0.25,0.1)
+    pos_hint: {'center_x':0.5, 'center_y':0.1}
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos

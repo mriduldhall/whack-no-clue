@@ -1,5 +1,4 @@
-from Main.BankingAppMain import MainApp
+from Main.Banking2 import rootuiApp
 
 if __name__ == '__main__':
-    app = MainApp()
-    app.run()
+    rootuiApp().run()
