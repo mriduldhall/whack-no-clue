@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from DatabaseConnector import Connection
 import plotly.express as px
+import plotly.graph_objects as go
 
 
 class BalanceChart:
@@ -40,6 +41,25 @@ class BalanceChart:
         fig.show()
 
 
-if __name__ == '__main__':
-    chart = BalanceChart()
-    chart.draw_chart('2024-10-01', '2024-10-30')
+class ExpenditureChart:
+    def __init__(self, user_id=1):
+        self.user_id = user_id
+        self.database = Connection()
+
+    def collect_data(self):
+        categories = self.database.get_categories()
+        data = []
+        for category in categories:
+            transactions = self.database.get_transactions_by_category(category[0], self.user_id)
+            total = 0
+            for transaction in transactions:
+                total += transaction[2]
+            data.append((category[1], total))
+        return data
+
+    def draw_chart(self):
+        data = self.collect_data()
+        categories = [x[0] for x in data]
+        totals = [(-1 * x[1]) for x in data]
+        fig = go.Figure(data=[go.Pie(labels=categories, values=totals, hole=.5)])
+        fig.show()
