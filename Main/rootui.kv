@@ -37,7 +37,7 @@
     AnchorLayout:
         anchor_x: "left"
         anchor_y: "center"
-        padding: [0,0,0,150]
+        padding: [0,0,0,0]
         Image:
             size_hint: 0.6,0.6
             color: 1,1,1,1
@@ -45,7 +45,7 @@
     AnchorLayout:
         anchor_x: "right"
         anchor_y: "center"
-        padding: [0,0,0,150]
+        padding: [0,0,0,0]
         Image:
             size_hint: 0.6,0.6
             color: 1,1,1,1
@@ -59,8 +59,9 @@
         AnchorLayout:
             anchor_x: "center"
             anchor_y: "bottom"
-            padding: [10,400,10,0]
+            padding: [10,0,10,0]
             Scroll:
+                size_hint_y: 0.25
                 GridLayout:
                     size_hint_y: None
                     row_default_height: 30
